@@ -30,15 +30,13 @@ class HotelModel {
   static List<HotelModel> sampleHotels = [
     HotelModel(
       id: '1',
-      title: 'title',
-      location: 'location',
+      title: "D'Java Homestay",
+      location: 'surabaya',
       address: 'address',
       description: 'description',
       thumbnailPath: 'thumbnailPath',
       imagesPaths: [
         'assets/images/hotel_01.jpg',
-        'assets/images/hotel_02.jpg',
-        'assets/images/hotel_03.jpg'
       ],
       price: 456,
       coordinate: const LatLng(
@@ -48,15 +46,13 @@ class HotelModel {
     ),
     HotelModel(
       id: '1',
-      title: 'title',
-      location: 'location',
+      title: 'Greenhost Boutique Hotel',
+      location: 'tokyo shibuya',
       address: 'address',
       description: 'description',
       thumbnailPath: 'thumbnailPath',
       imagesPaths: [
-        'assets/images/hotel_01.jpg',
         'assets/images/hotel_02.jpg',
-        'assets/images/hotel_03.jpg'
       ],
       price: 456,
       coordinate: const LatLng(
@@ -66,15 +62,13 @@ class HotelModel {
     ),
     HotelModel(
       id: '1',
-      title: 'title',
-      location: 'location',
+      title: 'Candi Tirta Rahayu',
+      location: 'thailand phiphi island',
       address: 'address',
       description: 'description',
       thumbnailPath: 'thumbnailPath',
       imagesPaths: [
-        'assets/images/hotel_01.jpg',
-        'assets/images/hotel_02.jpg',
-        'assets/images/hotel_03.jpg'
+        'assets/images/hotel_03.jpg',
       ],
       price: 456,
       coordinate: const LatLng(

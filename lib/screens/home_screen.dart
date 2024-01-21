@@ -1,5 +1,8 @@
+import 'package:booking_app/models/hotel_model.dart';
+import 'package:booking_app/providers/all_hotels_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -28,6 +31,10 @@ class HomeScreen extends StatelessWidget {
               children: [
                 _Header(),
                 _Search(),
+                SizedBox(
+                  height: 20,
+                ),
+                _NearbyHotels(),
               ],
             )
           ],
@@ -185,6 +192,112 @@ class CustomTextField extends StatelessWidget {
           fontSize: 16,
           fontWeight: FontWeight.bold,
         ),
+      ),
+    );
+  }
+}
+
+class _NearbyHotels extends ConsumerWidget {
+  const _NearbyHotels();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final hotels = ref.watch(allHotelsProvider);
+    return Column(
+      children: [
+        hotels.when(
+          data: (hotels) {
+            return ListView.builder(
+                shrinkWrap: true,
+                itemCount: hotels.length,
+                itemBuilder: (context, index) {
+                  return HotelCard(hotel: hotels[index]);
+                });
+          },
+          error: (error, stackTrace) => Text('Error: $error'),
+          loading: () => const Center(
+            child: CircularProgressIndicator(),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class HotelCard extends StatelessWidget {
+  final HotelModel hotel;
+  const HotelCard({super.key, required this.hotel});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 120,
+      margin: const EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 10,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        children: [
+          Flexible(
+            flex: 1,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(20),
+                bottomLeft: Radius.circular(20),
+              ),
+              child: Image.asset(
+                hotel.thumbnailPath,
+                fit: BoxFit.cover,
+                width: 100,
+              ),
+            ),
+          ),
+          Flexible(
+            flex: 2,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 40,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    hotel.title,
+                    maxLines: 2,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.location_on,
+                        color: Colors.yellow[700],
+                        size: 20,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        hotel.location,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
