@@ -38,11 +38,12 @@ class HotelModel {
       imagesPaths: [
         'assets/images/hotel_01.jpg',
       ],
-      price: 456,
+      price: 337,
       coordinate: const LatLng(
         -7.8712,
         112.5263,
       ),
+      ratingScore: 5.0,
     ),
     HotelModel(
       id: '1',
@@ -56,9 +57,10 @@ class HotelModel {
       ],
       price: 456,
       coordinate: const LatLng(
-        -7.8712,
-        112.5263,
+        -7.79,
+        110.36,
       ),
+      ratingScore: 3.6,
     ),
     HotelModel(
       id: '1',
@@ -70,11 +72,29 @@ class HotelModel {
       imagesPaths: [
         'assets/images/hotel_03.jpg',
       ],
-      price: 456,
+      price: 695,
       coordinate: const LatLng(
         -7.8712,
         112.5263,
       ),
+      ratingScore: 4.4,
+    ),
+    HotelModel(
+      id: '1',
+      title: 'Candi Tirta Rahayu',
+      location: 'thailand phiphi island',
+      address: 'address',
+      description: 'description',
+      thumbnailPath: 'thumbnailPath',
+      imagesPaths: [
+        'assets/images/hotel_01.jpg',
+      ],
+      price: 695,
+      coordinate: const LatLng(
+        -7.8712,
+        112.5263,
+      ),
+      ratingScore: 4.4,
     ),
   ];
 }
