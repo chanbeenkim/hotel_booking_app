@@ -1,19 +1,20 @@
+import 'package:booking_app/widgets/textfield/from_text_field_widget.dart';
+import 'package:booking_app/widgets/textfield/to_text_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'custom_text_field_widget.dart';
+import 'textfield/custom_text_field_widget.dart';
 
 class Search extends StatelessWidget {
   const Search({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final locationTextController = TextEditingController();
-    final dateFromTextController = TextEditingController();
-    final datetoTextController = TextEditingController();
+    final locationHintTextController = TextEditingController();
+    final dateFromHintTextController = TextEditingController();
+    final dateToHintTextController = TextEditingController();
 
-    locationTextController.text = "Seoul";
-    dateFromTextController.text = datetoTextController.text =
+    dateFromHintTextController.text = dateToHintTextController.text =
         DateFormat('yyyy/MM/dd').format(DateTime.now());
 
     return Padding(
@@ -41,8 +42,8 @@ class Search extends StatelessWidget {
                 const SizedBox(width: 10),
                 CustomTextField(
                   label: "Location",
-                  hintText: locationTextController.text,
-                  controller: locationTextController,
+                  hintText: locationHintTextController.text,
+                  controller: locationHintTextController,
                 ),
               ],
             ),
@@ -53,15 +54,15 @@ class Search extends StatelessWidget {
                   color: Colors.blueAccent,
                 ),
                 const SizedBox(width: 10),
-                CustomTextField(
+                FromTextField(
                   label: "From",
-                  hintText: dateFromTextController.text,
-                  controller: locationTextController,
+                  hintText: dateFromHintTextController.text,
+                  controller: dateFromHintTextController,
                 ),
-                CustomTextField(
+                ToTextField(
                   label: "To",
-                  hintText: datetoTextController.text,
-                  controller: locationTextController,
+                  hintText: dateToHintTextController.text,
+                  controller: dateToHintTextController,
                 ),
               ],
             ),

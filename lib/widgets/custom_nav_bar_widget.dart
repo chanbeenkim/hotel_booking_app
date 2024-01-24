@@ -1,3 +1,4 @@
+import 'package:booking_app/screens/booking_screen.dart';
 import 'package:flutter/material.dart';
 import '../screens/home_screen.dart';
 import '../screens/map_screen.dart';
@@ -48,6 +49,14 @@ class CustomNavBar extends StatelessWidget {
               iconPath: Icons.airplane_ticket_outlined,
               text: "Booking",
               isSelected: index == 2,
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BookingScreen(),
+                  ),
+                );
+              },
             ),
             NavBarIcon(
               iconPath: Icons.person_2_outlined,

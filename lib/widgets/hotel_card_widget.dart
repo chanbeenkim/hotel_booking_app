@@ -30,7 +30,8 @@ class HotelCard extends StatelessWidget {
               child: Image.asset(
                 hotel.imagesPaths[0],
                 fit: BoxFit.cover,
-                width: 100,
+                height: 120,
+                width: 120,
               ),
             ),
           ),

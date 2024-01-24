@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
+class FromTextField extends StatelessWidget {
   final TextEditingController controller = TextEditingController();
-  final String hintText;
   final String label;
+  String hintText = "";
 
-  CustomTextField({
+  FromTextField({
     super.key,
     required controller,
-    required this.hintText,
     required this.label,
+    required this.hintText,
   });
 
   @override
@@ -18,7 +18,7 @@ class CustomTextField extends StatelessWidget {
       child: TextField(
         controller: controller,
         decoration: InputDecoration(
-          label: Text(label),
+          labelText: label,
           hintText: hintText,
           border: InputBorder.none,
         ),
