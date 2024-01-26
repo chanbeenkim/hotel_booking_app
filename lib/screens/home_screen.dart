@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/custom_nav_bar_widget.dart';
 import '../widgets/header_widget.dart';
 import '../widgets/nearby_hotels_widget.dart';
-import '../widgets/seach_widget.dart';
+import '../widgets/search_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

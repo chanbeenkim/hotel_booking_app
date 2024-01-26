@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 class FromTextField extends StatelessWidget {
   final TextEditingController controller = TextEditingController();
   final String label;
-  String hintText = "";
 
   FromTextField({
     super.key,
     required controller,
     required this.label,
-    required this.hintText,
   });
 
   @override
@@ -19,7 +17,7 @@ class FromTextField extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           labelText: label,
-          hintText: hintText,
+          hintText: DateTime.now().toString().split(" ")[0],
           border: InputBorder.none,
         ),
         style: const TextStyle(

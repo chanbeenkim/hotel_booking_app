@@ -1,4 +1,8 @@
+import 'package:booking_app/screens/reservation_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:latlng/latlng.dart';
+
+import '../screens/reservation_two_screen.dart';
 
 class HotelModel {
   final String id;
@@ -12,6 +16,7 @@ class HotelModel {
   final double ratingScore;
   final double price;
   final LatLng coordinate;
+  final Widget screen;
 
   HotelModel({
     required this.id,
@@ -23,6 +28,7 @@ class HotelModel {
     required this.imagesPaths,
     required this.price,
     required this.coordinate,
+    required this.screen,
     this.totalReview = 0,
     this.ratingScore = 0,
   });
@@ -44,6 +50,7 @@ class HotelModel {
         126.9496986,
       ),
       ratingScore: 4.9,
+      screen: const ReservationScreen(),
     ),
     HotelModel(
       id: '2',
@@ -62,6 +69,7 @@ class HotelModel {
       ),
       ratingScore: 3.6,
       totalReview: 143,
+      screen: const ReservationTwoScreen(),
     ),
     HotelModel(
       id: '3',
@@ -79,6 +87,7 @@ class HotelModel {
         127.0181364,
       ),
       ratingScore: 3.7,
+      screen: const ReservationScreen(),
     ),
     HotelModel(
       id: '4',
@@ -96,6 +105,7 @@ class HotelModel {
         126.9172764,
       ),
       ratingScore: 4.2,
+      screen: const ReservationScreen(),
     ),
   ];
 }

@@ -1,7 +1,6 @@
 import 'package:booking_app/widgets/textfield/from_text_field_widget.dart';
 import 'package:booking_app/widgets/textfield/to_text_field_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import 'textfield/custom_text_field_widget.dart';
 
@@ -13,9 +12,6 @@ class Search extends StatelessWidget {
     final locationHintTextController = TextEditingController();
     final dateFromHintTextController = TextEditingController();
     final dateToHintTextController = TextEditingController();
-
-    dateFromHintTextController.text = dateToHintTextController.text =
-        DateFormat('yyyy/MM/dd').format(DateTime.now());
 
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -56,12 +52,10 @@ class Search extends StatelessWidget {
                 const SizedBox(width: 10),
                 FromTextField(
                   label: "From",
-                  hintText: dateFromHintTextController.text,
                   controller: dateFromHintTextController,
                 ),
                 ToTextField(
                   label: "To",
-                  hintText: dateToHintTextController.text,
                   controller: dateToHintTextController,
                 ),
               ],

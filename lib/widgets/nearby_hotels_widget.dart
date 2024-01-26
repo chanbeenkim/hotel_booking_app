@@ -19,7 +19,16 @@ class NearbyHotels extends ConsumerWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: hotels.length,
                 itemBuilder: (context, index) {
-                  return HotelCard(hotel: hotels[index]);
+                  return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => hotels[index].screen,
+                          ),
+                        );
+                      },
+                      child: HotelCard(hotel: hotels[index]));
                 });
           },
           error: (error, stackTrace) => Text('Error: $error'),
