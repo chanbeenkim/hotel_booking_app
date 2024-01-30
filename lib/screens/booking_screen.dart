@@ -16,13 +16,55 @@ class BookingScreen extends StatelessWidget {
             },
           ),
         ),
-        body: const Center(
-          child: Text("Booking Screen"),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Center(
+              child: Text(
+                "Booking",
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            ClipOval(
+              child: SizedBox.fromSize(
+                size: const Size(280, 200),
+                child: const Image(
+                  image: AssetImage(
+                    "assets/images/rest.jpg",
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            const Text(
+              "Time to start thining about your next adventure!",
+            ),
+            const Text(
+              "Create a trip by adding a flight or hotel.",
+            ),
+            ElevatedButton(
+                onPressed: () {},
+                child: Container(
+                  width: 120,
+                  height: 28,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.blue),
+                  ),
+                  child: const Text(
+                    "Start Booking",
+                  ),
+                ))
+          ],
         ),
         bottomNavigationBar: const CustomNavBar(
           index: 2,
         ));
   }
 }
-
-class CostumNavBar {}
