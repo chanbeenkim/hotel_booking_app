@@ -12,20 +12,27 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/hotel_01.jpg
+  /// File path: assets/images/hotel_01.jpeg
   AssetGenImage get hotel01 =>
-      const AssetGenImage('assets/images/hotel_01.jpg');
+      const AssetGenImage('assets/images/hotel_01.jpeg');
 
-  /// File path: assets/images/hotel_02.jpg
+  /// File path: assets/images/hotel_02.jpeg
   AssetGenImage get hotel02 =>
-      const AssetGenImage('assets/images/hotel_02.jpg');
+      const AssetGenImage('assets/images/hotel_02.jpeg');
 
   /// File path: assets/images/hotel_03.jpg
   AssetGenImage get hotel03 =>
       const AssetGenImage('assets/images/hotel_03.jpg');
 
+  /// File path: assets/images/hotel_04.jpeg
+  AssetGenImage get hotel04 =>
+      const AssetGenImage('assets/images/hotel_04.jpeg');
+
+  /// File path: assets/images/rest.jpg
+  AssetGenImage get rest => const AssetGenImage('assets/images/rest.jpg');
+
   /// List of all assets
-  List<AssetGenImage> get values => [hotel01, hotel02, hotel03];
+  List<AssetGenImage> get values => [hotel01, hotel02, hotel03, hotel04, rest];
 }
 
 class Assets {

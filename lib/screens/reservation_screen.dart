@@ -18,6 +18,7 @@ class ReservationScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final mapLocation = ref.watch(mapLocationProvider);
     final mapMarkers = ref.watch(mapMarkersProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Reservation Screen"),
@@ -81,9 +82,12 @@ class ReservationScreen extends ConsumerWidget {
                       ),
                       const Text(
                         "서울특별시 마포구 마포대로 83",
-                      )
+                      ),
                     ],
                   ),
+                ),
+                Row(
+                  children: [Container()],
                 )
               ],
             )
