@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../providers/map_location_provider.dart';
 import '../providers/map_markers_provider.dart';
+import '../providers/review_provider.dart';
 import '../widgets/reservation_widgets/reservation_cost_widget.dart';
 import '../widgets/reservation_widgets/reservation_image_widget.dart';
 import '../widgets/reservation_widgets/reservation_info_widget.dart';
@@ -18,6 +19,7 @@ class ReservationScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final mapLocation = ref.watch(mapLocationProvider);
     final mapMarkers = ref.watch(mapMarkersProvider);
+    final review = ref.watch(reviewProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -87,7 +89,17 @@ class ReservationScreen extends ConsumerWidget {
                   ),
                 ),
                 Row(
-                  children: [Container()],
+                  children: [
+                    Container(
+                      child: Text(review.maybeWhen(
+                        data: (reviews) {
+                          final review = reviews[0];
+                          return review.review;
+                        },
+                        orElse: () => "No reviews",
+                      )),
+                    )
+                  ],
                 )
               ],
             )
