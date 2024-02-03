@@ -19,7 +19,7 @@ class ReservationScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final mapLocation = ref.watch(mapLocationProvider);
     final mapMarkers = ref.watch(mapMarkersProvider);
-    final review = ref.watch(reviewProvider);
+    final reviewsAsyncValue = ref.watch(reviewsProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -91,14 +91,24 @@ class ReservationScreen extends ConsumerWidget {
                 Row(
                   children: [
                     Container(
-                      child: Text(review.maybeWhen(
+                      child: reviewsAsyncValue.maybeWhen(
                         data: (reviews) {
-                          final review = reviews[0];
-                          return review.review;
+                          return ListView.builder(
+                              itemBuilder: (context, index) {
+                            final review = reviews[index];
+                            return ListTile(
+                              title: Text(review.name),
+                              subtitle: Text(review.review),
+                            );
+                          });
                         },
-                        orElse: () => "No reviews",
-                      )),
-                    )
+                        orElse: () {
+                          return null;
+                        },
+                        error: (error, stackTrace) => Text('Error: $error'),
+                        loading: () => const CircularProgressIndicator(),
+                      ),
+                    ),
                   ],
                 )
               ],

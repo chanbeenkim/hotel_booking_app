@@ -1,19 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'review_model.dart';
+part of 'review.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ReviewModelImpl _$$ReviewModelImplFromJson(Map<String, dynamic> json) =>
-    _$ReviewModelImpl(
+_$ReviewImpl _$$ReviewImplFromJson(Map<String, dynamic> json) => _$ReviewImpl(
       name: json['name'] as String,
       review: json['review'] as String,
       avatar: json['avatar'] as String,
     );
 
-Map<String, dynamic> _$$ReviewModelImplToJson(_$ReviewModelImpl instance) =>
+Map<String, dynamic> _$$ReviewImplToJson(_$ReviewImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'review': instance.review,
