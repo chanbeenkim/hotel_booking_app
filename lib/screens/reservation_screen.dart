@@ -91,19 +91,11 @@ class ReservationScreen extends ConsumerWidget {
                 Row(
                   children: [
                     Container(
-                      child: reviewsAsyncValue.maybeWhen(
+                      child: reviewsAsyncValue.when(
                         data: (reviews) {
-                          return ListView.builder(
-                              itemBuilder: (context, index) {
-                            final review = reviews[index];
-                            return ListTile(
-                              title: Text(review.name),
-                              subtitle: Text(review.review),
-                            );
-                          });
-                        },
-                        orElse: () {
-                          return null;
+                          return Text(
+                            reviews.first.toString(),
+                          );
                         },
                         error: (error, stackTrace) => Text('Error: $error'),
                         loading: () => const CircularProgressIndicator(),
