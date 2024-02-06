@@ -75,7 +75,13 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
         padding: const EdgeInsets.all(36.0),
         child: Column(
           children: [
-            const Text("Create an account"),
+            const Text(
+              "Create an account",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             TextField(
               controller: _emailController,
               keyboardType: TextInputType.emailAddress,
@@ -83,9 +89,17 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               autocorrect: false,
               decoration: InputDecoration(
                 labelText: "Email",
+                labelStyle: const TextStyle(
+                  color: Colors.black,
+                ),
                 errorText: _isEmailValid(),
                 enabledBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                focusedBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ),
@@ -94,21 +108,46 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               keyboardType: TextInputType.visiblePassword,
               onEditingComplete: _onSubmit,
               autocorrect: false,
+              obscureText: true,
               decoration: const InputDecoration(
                 labelText: "Password",
+                labelStyle: TextStyle(
+                  color: Colors.black,
+                ),
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: _onSubmit,
-              child: const Text("Login"),
+            const SizedBox(
+              height: 10,
             ),
             ElevatedButton(
               onPressed: _onSubmit,
-              child: const Text("Sign Up"),
-            )
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+              ),
+              child: const Text("Login"),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: _onSubmit,
+                  child: const Text(
+                    "Sign Up",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
