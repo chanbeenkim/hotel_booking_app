@@ -1,3 +1,4 @@
+import 'package:booking_app/authentication/view_models/login_view_model.dart';
 import 'package:booking_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -48,6 +49,10 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
       return "Email not valid";
     }
     return null;
+  }
+
+  void _onLogin() {
+    ref.read(loginProvider.notifier).login(_email, _password, context);
   }
 
   void _onSubmit() {
@@ -128,7 +133,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               height: 10,
             ),
             ElevatedButton(
-              onPressed: _onSubmit,
+              onPressed: _onLogin,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,
               ),
